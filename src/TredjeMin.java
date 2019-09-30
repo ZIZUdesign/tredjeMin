@@ -60,3 +60,26 @@ public class TredjeMin {
 
 
 }// end tredjemin
+    ///// Oppgave 4 //////////////////////////////////////
+    public static void delsortering(int[] a) {
+        int lengde = a.length;
+        int v = 0, h = lengde - 1;
+
+        if (a.length == 0) return;
+
+        while (v <= h) {
+            if (((a[v] % 2) == 0) && !((a[h] % 2) == 0)) {
+                bytt(a, v++, h--);
+            } else if ((a[v] % 2) == 0) {
+                h--;
+            } else if (!((a[h] % 2) == 0)) {
+                v++;
+            } else if (!((a[v] % 2) == 0) && ((a[h] % 2) == 0)) {
+                v++;
+                h--;
+            }
+        }
+        kvikksortering(a,0,v);
+        kvikksortering(a,v,lengde);
+
+    }
